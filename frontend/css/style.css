@@ -4,8 +4,8 @@
    ================================================ */
 
 :root {
-  --primary:      #ff6490;
-  --primary-dark: #6b1430;
+  --primary:      #ba1644;
+  --primary-dark: #f64a80;
   --accent:       #b5435f;
   --pink-light:   #faf2f4;
   --pink-border:  #e0d0d4;
@@ -17,7 +17,7 @@
   --ok-bg:        #e3f2e8;
   --warn:         #b9650f;
   --warn-bg:      #fdf0e0;
-  --danger:       #8e1b3c;
+  --danger:       #f33067;
   --danger-bg:    #fbe3e9;
   --rejected:     #a31515;
   --rejected-bg:  #fde2e2;
