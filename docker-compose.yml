@@ -3,6 +3,12 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.api
+      network: host
+      args:
+        HTTP_PROXY: http://127.0.0.1:3128
+        HTTPS_PROXY: http://127.0.0.1:3128
+        http_proxy: http://127.0.0.1:3128
+        https_proxy: http://127.0.0.1:3128
     expose:
       - "8100"
     environment:
@@ -14,7 +20,7 @@ services:
       context: .
       dockerfile: docker/Dockerfile.frontend
     ports:
-      - "88:88"
+      - "8088:88"
     depends_on:
       - api
     restart: unless-stopped

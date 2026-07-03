@@ -1,4 +1,4 @@
-const API = "";
+const API = window.location.pathname.startsWith("/traceability") ? "/traceability" : "";
 
 async function apiGet(path) {
   const res = await fetch(`${API}${path}`);
