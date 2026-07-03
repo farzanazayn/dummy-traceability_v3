@@ -1,17 +1,26 @@
 services:
-  web:
+  api:
     build:
-      context: ./backend
+      context: .
+      dockerfile: docker/Dockerfile.api
       network: host
       args:
         HTTP_PROXY: http://127.0.0.1:3128
         HTTPS_PROXY: http://127.0.0.1:3128
         http_proxy: http://127.0.0.1:3128
         https_proxy: http://127.0.0.1:3128
-    ports:
-      - "8100:8100"
-    volumes:
-      - ./frontend:/app/frontend
+    expose:
+      - "8100"
     environment:
       - DATABASE_URL=postgresql://traceability_user:TraceDB2024@92.120.147.79:5432/dummy_traceability
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "88:88"
+    depends_on:
+      - api
     restart: unless-stopped
