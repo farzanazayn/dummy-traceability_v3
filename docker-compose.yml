@@ -3,16 +3,16 @@ services:
     build:
       context: ./backend
       args:
-        HTTP_PROXY: http://127.0.0.1:3128
-        HTTPS_PROXY: http://127.0.0.1:3128
-        http_proxy: http://127.0.0.1:3128
-        https_proxy: http://127.0.0.1:3128
+        HTTP_PROXY: http://172.17.0.1:3128
+        HTTPS_PROXY: http://172.17.0.1:3128
+        http_proxy: http://172.17.0.1:3128
+        https_proxy: http://172.17.0.1:3128
     ports:
       - "8100:8100"
     volumes:
       - ./frontend:/app/frontend
     environment:
       - DATABASE_URL=postgresql://traceability_user:TraceDB2024@92.120.147.79:5432/dummy_traceability
-      - HTTP_PROXY=http://127.0.0.1:3128
-      - HTTPS_PROXY=http://127.0.0.1:3128
+      - HTTP_PROXY=http://172.17.0.1:3128
+      - HTTPS_PROXY=http://172.17.0.1:3128
     restart: unless-stopped
